@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTimer", "SkyTimer\SkyTimer.csproj", "{3958E821-EABE-4527-BA14-C20BD8D1779D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTimer.Utils", "SkyTimer.Utils\SkyTimer.Utils.csproj", "{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3958E821-EABE-4527-BA14-C20BD8D1779D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3958E821-EABE-4527-BA14-C20BD8D1779D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3958E821-EABE-4527-BA14-C20BD8D1779D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3958E821-EABE-4527-BA14-C20BD8D1779D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

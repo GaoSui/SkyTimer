@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SkyTimer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="StackmatMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DataPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\SkyTimerData.bin</Value>
+    </Setting>
+    <Setting Name="StackmatFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">m\:ss\.fff</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
