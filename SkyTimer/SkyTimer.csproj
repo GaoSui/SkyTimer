@@ -56,6 +56,10 @@
       <HintPath>..\packages\NAudio.1.7.3\lib\net35\NAudio.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Octokit, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octokit.0.20.0\lib\net45\Octokit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,6 +109,7 @@
     <Compile Include="Service\RenameDialogService.cs" />
     <Compile Include="Service\WaShenRecord.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\RecordListViewModel.cs" />
     <Compile Include="ViewModel\ScrambleViewModel.cs" />
     <Compile Include="ViewModel\StatisticViewModel.cs" />

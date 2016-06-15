@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:SkyTimer.View"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="SkyTimer"
         Width="1200"
         Height="650"
-        DataContext="{Binding MainWindow,
+        DataContext="{Binding Main,
                               Source={StaticResource Locator}}"
         PreviewKeyDown="Window_KeyDown"
         PreviewKeyUp="Window_KeyUp"
@@ -25,10 +24,11 @@
             <RowDefinition Height="2*" />
             <RowDefinition Height="3*" />
             <RowDefinition Height="3*" />
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <local:ScrambleView Grid.ColumnSpan="2" Margin="10" />
         <local:RecordListView Grid.Row="1"
-                              Grid.RowSpan="2"
+                              Grid.RowSpan="3"
                               Margin="10" />
         <local:TimerView Grid.Row="1"
                          Grid.Column="1"
@@ -36,5 +36,17 @@
         <local:StatisticView Grid.Row="2"
                              Grid.Column="1"
                              Margin="10" />
+        <StackPanel Grid.Row="3"
+                    Grid.Column="1"
+                    Margin="10"
+                    Orientation="Horizontal">
+            <Label x:Name="lblMsg" />
+            <Button x:Name="btnGo"
+                    Width="75"
+                    Click="btnGo_Click"
+                    Content="Go"
+                    FontSize="18"
+                    Visibility="Collapsed" />
+        </StackPanel>
     </Grid>
 </Window>

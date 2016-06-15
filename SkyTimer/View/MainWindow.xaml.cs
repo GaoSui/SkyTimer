@@ -1,9 +1,12 @@
 ﻿using Microsoft.Practices.ServiceLocation;
+using Octokit;
+using SkyTimer.Helper;
 using SkyTimer.Properties;
 using SkyTimer.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +30,24 @@ namespace SkyTimer.View
         public MainWindow()
         {
             InitializeComponent();
+
+            Title = $"SkyTimer v{Settings.Default.Version}";
+            CheckForUpdate();
         }
+
+        private async void CheckForUpdate()
+        {
+            var client = new GitHubClient(new ProductHeaderValue("SkyTimer", Settings.Default.Version));
+            var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
+            if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
+            {
+                lblMsg.Content = $"New version available, please download it.";
+                url = release.HtmlUrl;
+                btnGo.Visibility = Visibility.Visible;
+            }
+        }
+
+        private string url;
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -61,6 +81,11 @@ namespace SkyTimer.View
                 ServiceLocator.Current.GetInstance<TimerViewModel>().SpaceKeyUp();
             }
             e.Handled = true;
+        }
+
+        private void btnGo_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(url);
         }
     }
 }

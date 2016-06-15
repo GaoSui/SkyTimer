@@ -30,11 +30,13 @@ namespace SkyTimer.ViewModel
             SimpleIoc.Default.Register<ScrambleViewModel>();
             SimpleIoc.Default.Register<RecordListViewModel>();
             SimpleIoc.Default.Register<StatisticViewModel>(true);
+            SimpleIoc.Default.Register<MainWindowViewModel>();
         }
 
         public TimerViewModel Timer => ServiceLocator.Current.GetInstance<TimerViewModel>();
         public ScrambleViewModel Scramble => ServiceLocator.Current.GetInstance<ScrambleViewModel>();
         public RecordListViewModel RecordList => ServiceLocator.Current.GetInstance<RecordListViewModel>();
         public StatisticViewModel Statistic => ServiceLocator.Current.GetInstance<StatisticViewModel>();
+        public MainWindowViewModel Main => ServiceLocator.Current.GetInstance<MainWindowViewModel>();
     }
 }

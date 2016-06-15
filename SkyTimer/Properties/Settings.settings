@@ -11,5 +11,8 @@
     <Setting Name="StackmatFormat" Type="System.String" Scope="Application">
       <Value Profile="(Default)">m\:ss\.fff</Value>
     </Setting>
+    <Setting Name="Version" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">0.0.0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
