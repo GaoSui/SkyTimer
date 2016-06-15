@@ -37,13 +37,20 @@ namespace SkyTimer.View
 
         private async void CheckForUpdate()
         {
-            var client = new GitHubClient(new ProductHeaderValue("SkyTimer", Settings.Default.Version));
-            var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
-            if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
+            try
             {
-                lblMsg.Content = $"New version available, please download it.";
-                url = release.HtmlUrl;
-                btnGo.Visibility = Visibility.Visible;
+                var client = new GitHubClient(new ProductHeaderValue("SkyTimer", Settings.Default.Version));
+                var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
+                if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
+                {
+                    lblMsg.Content = $"New version available, please download it.";
+                    url = release.HtmlUrl;
+                    btnGo.Visibility = Visibility.Visible;
+                }
+            }
+            catch
+            {
+                return;
             }
         }
 
