@@ -38,7 +38,7 @@ namespace SkyTimer.Utils.Decoder
             }
 
             int value = 0;
-            var threshold = (int)((ssData.Max() - ssData.Min()) * 0.4);
+            var threshold = (int)((ssData.Max() - ssData.Min()) * 0.2);
             values.Clear();
 
             //Find the first switch to determine the value
