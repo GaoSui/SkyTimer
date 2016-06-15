@@ -40,7 +40,7 @@ Select a record in your record list and DNF, +2 or delete it with the correspond
 
 Choose a scramble type in the drop down list. "fm" stands for fewest move. "ni" stands for no inspection.
 
-Right click on the timer digits to choose wether to use StackMat or not. When StackMat is disabled, space bar will become enabled and vice versa.
+Right click on the timer digits to choose wether to use StackMat or not. When StackMat is disabled, space bar will become enabled and vice versa. Check double precision to show only two digits, however triple precision is used internally.
 
 Shortcuts:
 - D: DNF last record
