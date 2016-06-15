@@ -17,8 +17,6 @@ namespace SkyTimer
     /// </summary>
     public partial class App : Application
     {
-        //Process.Start("control.exe", "mmsys.cpl,,1");
-
         protected override void OnStartup(StartupEventArgs e)
         {
             Process.Start("javaw.exe", "-jar TNoodle-WCA-0.11.1.jar -n");

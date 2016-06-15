@@ -20,6 +20,7 @@
                           IsCheckable="True"
                           IsChecked="{Binding StackmatMode,
                                               Source={x:Static prop:Settings.Default}}" />
+                <MenuItem Command="{Binding Setup}" Header="Audio Settings" />
             </ContextMenu>
         </Viewbox.ContextMenu>
         <TextBlock FontFamily="/SkyTimer;component/Asset/#LED Real"

@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
 using NAudio.Wave;
 using SkyTimer.MVVM;
 using SkyTimer.Properties;
@@ -127,6 +128,18 @@ namespace SkyTimer.ViewModel
                     watch.Restart();
                     StackmatStatus = StackmatStatus.Timing;
                 }
+            }
+        }
+
+        private RelayCommand setup;
+        public RelayCommand Setup
+        {
+            get
+            {
+                return setup ?? (setup = new RelayCommand(() =>
+                {
+                    Process.Start("control.exe", "mmsys.cpl,,1");
+                }));
             }
         }
     }
