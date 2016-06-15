@@ -12,7 +12,7 @@
       <Value Profile="(Default)">m\:ss\.fff</Value>
     </Setting>
     <Setting Name="Version" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">1.1.0</Value>
+      <Value Profile="(Default)">1.2.0</Value>
     </Setting>
     <Setting Name="DoublePrecision" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

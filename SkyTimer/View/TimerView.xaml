@@ -20,6 +20,10 @@
                           IsCheckable="True"
                           IsChecked="{Binding StackmatMode,
                                               Source={x:Static prop:Settings.Default}}" />
+                <MenuItem Header="Double Precision"
+                          IsCheckable="True"
+                          IsChecked="{Binding DoublePrecision,
+                                              Source={x:Static prop:Settings.Default}}" />
                 <MenuItem Command="{Binding Setup}" Header="Audio Settings" />
             </ContextMenu>
         </Viewbox.ContextMenu>
