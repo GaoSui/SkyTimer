@@ -17,7 +17,7 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 
 ### Setup Instruction
 1. Make sure both .NET Framework 4.6.1 and Java are installed.
-2. Download and unzip SkyTimer from the [release tab](https://github.com/GaoSui/SkyTimer/releases).
+2. Download and unzip SkyTimer from the [release tab](https://github.com/GaoSui/SkyTimer/releases) or [度娘](http://pan.baidu.com/s/1dF7Faff).
 3. Download TNoodle (WCA's scramble program).
 [DownloadLink](https://www.worldcubeassociation.org/regulations/scrambles/tnoodle/TNoodle-WCA-0.11.1.jar)
 4. Copy TNoodle-WCA-0.11.1.jar to SkyTimer's directory.
