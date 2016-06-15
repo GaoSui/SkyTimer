@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SkyTimer.Utils.Decoder
 {
@@ -21,7 +22,8 @@ namespace SkyTimer.Utils.Decoder
         private List<int> Buffer = new List<int>();
         private int counter0 = 0;
         private int counter1 = 0;
-        private List<int> values = new List<int> { 0, 0, 0, 0, 0, 0 };
+        private List<int> decodedValues = new List<int> { 0, 0, 0, 0, 0, 0 };
+        private List<int> values = new List<int>();
 
 
         public void Decode(byte[] ssData)
@@ -31,14 +33,47 @@ namespace SkyTimer.Utils.Decoder
                 Buffer.Clear();
                 counter1 = 0;
                 counter0 = 0;
-                //LostConnection(this, null);
 
                 return;
             }
 
-            for (int i = 0; i < ssData.Length; i++)
+            int value = 0;
+            var threshold = (int)((ssData.Max() - ssData.Min()) * 0.4);
+            values.Clear();
+
+            //Find the first switch to determine the value
+            for (int i = 1; i < ssData.Length; i++)
             {
-                if (ssData[i] > 127)
+                if (ssData[i] - ssData[i - 1] > threshold)
+                {
+                    value = 0;
+                    break;
+                }
+                else if (ssData[i - 1] - ssData[i] > threshold)
+                {
+                    value = 1;
+                    break;
+                }
+            }
+
+            values.Add(value);
+            for (int i = 1; i < ssData.Length; i++)
+            {
+                if (ssData[i] - ssData[i - 1] > threshold)
+                {
+                    value = 1;
+                }
+                else if (ssData[i - 1] - ssData[i] > threshold)
+                {
+                    value = 0;
+                }
+                values.Add(value);
+            }
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                //if (ssData[i] > 127)
+                if (values[i] == 1)
                 {
                     counter1++;
                     if (counter0 != 0)
@@ -144,15 +179,15 @@ namespace SkyTimer.Utils.Decoder
                                 switch (n3)
                                 {
                                     case 1:
-                                        values[i] = (5);
+                                        decodedValues[i] = (5);
                                         index += 8;
                                         break;
                                     case 2:
-                                        values[i] = (9);
+                                        decodedValues[i] = (9);
                                         index += 6;
                                         break;
                                     case 3:
-                                        values[i] = (1);
+                                        decodedValues[i] = (1);
                                         index += 6;
                                         break;
                                     default:
@@ -160,11 +195,11 @@ namespace SkyTimer.Utils.Decoder
                                 }
                                 break;
                             case 2:
-                                values[i] = (3);
+                                decodedValues[i] = (3);
                                 index += 6;
                                 break;
                             case 3:
-                                values[i] = (7);
+                                decodedValues[i] = (7);
                                 index += 6;
                                 break;
                             default:
@@ -175,11 +210,11 @@ namespace SkyTimer.Utils.Decoder
                         switch (n2)
                         {
                             case 1:
-                                values[i] = (2);
+                                decodedValues[i] = (2);
                                 index += 6;
                                 break;
                             case 2:
-                                values[i] = (6);
+                                decodedValues[i] = (6);
                                 index += 6;
                                 break;
                             default:
@@ -187,15 +222,15 @@ namespace SkyTimer.Utils.Decoder
                         }
                         break;
                     case 3:
-                        values[i] = (4);
+                        decodedValues[i] = (4);
                         index += 6;
                         break;
                     case 4:
-                        values[i] = (8);
+                        decodedValues[i] = (8);
                         index += 4;
                         break;
                     case 5:
-                        values[i] = (0);
+                        decodedValues[i] = (0);
                         index += 4;
                         break;
                     default:
@@ -203,7 +238,7 @@ namespace SkyTimer.Utils.Decoder
                 }
             }
 
-            frame.Time = values[0] * 60000 + values[1] * 10000 + values[2] * 1000 + values[3] * 100 + values[4] * 10 + values[5];
+            frame.Time = decodedValues[0] * 60000 + decodedValues[1] * 10000 + decodedValues[2] * 1000 + decodedValues[3] * 100 + decodedValues[4] * 10 + decodedValues[5];
             return true;
         }
 
