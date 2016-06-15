@@ -3,12 +3,9 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 
 ##### MIT License
 
-### Features
-- Connect StackMat
-- Use WCA official scramble
-- Practice data plotting
-- Unlimited data groups
-- Real time statistics
+## Download Link 下载链接
+- [Github] (https://github.com/GaoSui/SkyTimer/releases)
+- [百度网盘](http://pan.baidu.com/s/1dF7Faff)
 
 ### System Requirement
 - Windows 10 is recommended
@@ -17,10 +14,8 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 
 ### Setup Instruction
 1. Make sure both .NET Framework 4.6.1 and Java are installed.
-2. Download and unzip SkyTimer from the [release tab](https://github.com/GaoSui/SkyTimer/releases) or [百度](http://pan.baidu.com/s/1dF7Faff).
-3. Download TNoodle (WCA's scramble program). [DownloadLink](https://www.worldcubeassociation.org/regulations/scrambles/tnoodle/TNoodle-WCA-0.11.1.jar)
-4. Copy TNoodle-WCA-0.11.1.jar to SkyTimer's directory.
-5. Double click SkyTimer.exe to run it. A TNoodle instance will also be launched.
+2. Download TNoodle (WCA's scramble program) and copy it to SkyTimer's directory. [DownloadLink](https://www.worldcubeassociation.org/regulations/scrambles/tnoodle/TNoodle-WCA-0.11.1.jar) 
+3. Double click SkyTimer.exe to run it. A TNoodle instance will also be launched.
 
 ### Setup StackMat
 1. Right click on the timer's digits to open system audio settings.
@@ -30,7 +25,9 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 5. Disable all sound effects.
 6. Make sure the StackMat option is checked in SkyTimer.
 
-I only tested this using a gen 4 mat. If your sound card has filters which are impossible to be disabled, StackMat connection will not work properly. Using a cheap usb sound card could be a work around.
+I only tested this using a gen 4 mat. 
+
+If your sound card has filters which are impossible to be disabled, StackMat connection will not work properly. Using a cheap usb sound card could be a work around.
 
 ### How to use
 On the left is the list of groups. Add and remove a group using the plus and minus buttons below. Right click on a group to rename, clear or plot it. In the plot window you can click daily to show today's records or drag the sliders to show records in a certain amount of days or rounds while all data are displayed by default.
