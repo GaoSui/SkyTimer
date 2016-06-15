@@ -14,7 +14,7 @@
     <SolidColorBrush x:Key="ScrollBar.Disabled.Background" Color="#F0F0F0" />
     <SolidColorBrush x:Key="ScrollBar.Disabled.Border" Color="#F0F0F0" />
     <Style x:Key="ScrollBarButton" TargetType="{x:Type RepeatButton}">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
