@@ -15,9 +15,11 @@ namespace SkyTimer.Helper
 
         public static bool IsOlder(this string current, string latest)
         {
-            if (int.Parse(latest[4].ToString()) > int.Parse(current[4].ToString()) ||
-                int.Parse(latest[2].ToString()) > int.Parse(current[2].ToString()) ||
-                int.Parse(latest[0].ToString()) > int.Parse(current[0].ToString()))
+            var cv = current.Split('.');
+            var lv = latest.Split('.');
+            if (int.Parse(lv[2].ToString()) > int.Parse(cv[2].ToString()) ||
+                int.Parse(lv[1].ToString()) > int.Parse(cv[1].ToString()) ||
+                int.Parse(lv[0].ToString()) > int.Parse(cv[0].ToString()))
             {
                 return true;
             }

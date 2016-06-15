@@ -44,7 +44,6 @@ namespace SkyTimer.View
                 if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
                 {
                     lblMsg.Content = $"New version available, please download it.";
-                    url = release.HtmlUrl;
                     btnGo.Visibility = Visibility.Visible;
                 }
             }
@@ -53,8 +52,6 @@ namespace SkyTimer.View
                 return;
             }
         }
-
-        private string url;
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -92,7 +89,7 @@ namespace SkyTimer.View
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(url);
+            Process.Start("https://github.com/GaoSui/SkyTimer");
         }
     }
 }
