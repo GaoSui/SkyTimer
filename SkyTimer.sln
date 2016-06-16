@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTimer", "SkyTimer\SkyTim
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTimer.Utils", "SkyTimer.Utils\SkyTimer.Utils.csproj", "{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyTimer.DebugTool", "SkyTimer.DebugTool\SkyTimer.DebugTool.csproj", "{3132CDD7-083F-4B8F-AC1C-E423A5E4D8A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BFD6F1B-1C52-4D6D-9529-85D04E18384B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1B1764B-1738-4D8E-BDA5-7C96F80D656B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3132CDD7-083F-4B8F-AC1C-E423A5E4D8A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3132CDD7-083F-4B8F-AC1C-E423A5E4D8A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3132CDD7-083F-4B8F-AC1C-E423A5E4D8A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3132CDD7-083F-4B8F-AC1C-E423A5E4D8A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

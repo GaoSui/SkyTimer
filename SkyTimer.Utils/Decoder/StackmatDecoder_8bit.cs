@@ -19,7 +19,7 @@ namespace SkyTimer.Utils.Decoder
         private int zeroThreshold;
         private double normalizeFactor;
 
-        private List<int> Buffer = new List<int>();
+        public List<int> Buffer = new List<int>();
         private int counter0 = 0;
         private int counter1 = 0;
         private List<int> decodedValues = new List<int> { 0, 0, 0, 0, 0, 0 };
@@ -83,13 +83,23 @@ namespace SkyTimer.Utils.Decoder
                             if (Buffer.Count > 40)
                             {
                                 var frame = new StackmatFrame();
-                                if (DecodeFrame(frame)) TimeUpdated(this, frame);
+                                if (DecodeFrame(frame))
+                                {
+                                    TimeUpdated(this, frame);
+                                }
                             }
                             Buffer.Clear();
+#if DEBUG
+
+                            BufferCleared();
+#endif
                         }
                         else
                         {
                             Buffer.Add(counter0);
+#if DEBUG
+                            ValuePushed(this, counter0);
+#endif
                         }
                         counter0 = 0;
                     }
@@ -100,6 +110,9 @@ namespace SkyTimer.Utils.Decoder
                     if (counter1 != 0)
                     {
                         Buffer.Add(counter1);
+#if DEBUG
+                        ValuePushed(this, counter1);
+#endif
                         counter1 = 0;
                     }
                 }
@@ -243,8 +256,11 @@ namespace SkyTimer.Utils.Decoder
         }
 
         public event EventHandler<StackmatFrame> TimeUpdated;
-        //public event EventHandler LostConnection;
 
+#if DEBUG
+        public event EventHandler<int> ValuePushed;
+        public event Action BufferCleared;
+#endif
         public int Normalize(int value)
         {
             return (int)(value / normalizeFactor + 0.5);
