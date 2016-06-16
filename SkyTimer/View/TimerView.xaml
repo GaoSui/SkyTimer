@@ -25,7 +25,7 @@
                           IsChecked="{Binding DoublePrecision,
                                               Source={x:Static prop:Settings.Default}}" />
                 <MenuItem Command="{Binding Setup}" Header="{x:Static prop:Resources.Timer_Audio}" />
-                <MenuItem Header=""
+                <MenuItem Header="{x:Static prop:Resources.Timer_Diagnostic}"
                           IsCheckable="True"
                           IsChecked="{Binding Diagnostic}" />
             </ContextMenu>

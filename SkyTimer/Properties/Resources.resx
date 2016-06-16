@@ -162,6 +162,9 @@
   <data name="Timer_Audio" xml:space="preserve">
     <value>System Audio Setting</value>
   </data>
+  <data name="Timer_Diagnostic" xml:space="preserve">
+    <value>Diagnostic</value>
+  </data>
   <data name="Timer_Double" xml:space="preserve">
     <value>Double Precision</value>
   </data>

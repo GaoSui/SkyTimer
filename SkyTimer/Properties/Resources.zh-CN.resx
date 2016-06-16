@@ -162,6 +162,9 @@
   <data name="Timer_Audio" xml:space="preserve">
     <value>系统音频设置</value>
   </data>
+  <data name="Timer_Diagnostic" xml:space="preserve">
+    <value>诊断</value>
+  </data>
   <data name="Timer_Double" xml:space="preserve">
     <value>显示两位小数</value>
   </data>

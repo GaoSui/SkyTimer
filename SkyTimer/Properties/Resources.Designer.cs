@@ -196,6 +196,15 @@ namespace SkyTimer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Diagnostic.
+        /// </summary>
+        public static string Timer_Diagnostic {
+            get {
+                return ResourceManager.GetString("Timer_Diagnostic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Double Precision.
         /// </summary>
         public static string Timer_Double {
