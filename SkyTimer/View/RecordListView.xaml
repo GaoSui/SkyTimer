@@ -16,8 +16,8 @@
              mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -26,6 +26,7 @@
         </Grid.RowDefinitions>
 
         <ComboBox Grid.Column="2"
+                  HorizontalContentAlignment="Center"
                   FontSize="22"
                   ItemsSource="{Binding ScrambleType}"
                   SelectedItem="{Binding SelectedItem.ScrambleType,
@@ -63,7 +64,7 @@
         <ListBox x:Name="list"
                  Grid.Row="1"
                  Grid.Column="2"
-                 HorizontalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Center"
                  ItemsSource="{Binding SelectedItem.List,
                                        ElementName=lists}"
                  SelectedItem="{Binding SelectedRecord}">
