@@ -98,7 +98,7 @@ namespace SkyTimer.ViewModel
                 }
                 else
                 {
-                    using (var writer = new WaveFileWriter(@".\diagnostic.wav", new WaveFormat(8000, 8, 1)))
+                    using (var writer = new WaveFileWriter(@".\diagnostic.wav", new WaveFormat(44100, 8, 1)))
                     {
                         writer.Write(diagnosticFile.ToArray(), 0, diagnosticFile.Count);
                         diagnosticFinished = true;
