@@ -5,6 +5,7 @@ using SkyTimer.MVVM;
 using SkyTimer.Properties;
 using SkyTimer.Utils.Decoder;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Threading;
 
@@ -19,7 +20,6 @@ namespace SkyTimer.ViewModel
             wave.WaveFormat = new WaveFormat(8000, 8, 1);
 
             decoder.TimeUpdated += Decoder_TimeUpdated;
-            //decoder.LostConnection += Decoder_LostConnection;
 
             timer.Tick += (sender, e) =>
             {
@@ -47,6 +47,10 @@ namespace SkyTimer.ViewModel
             get { return time; }
             set { Set(ref time, value); }
         }
+
+        public bool Diagnostic { get; set; }
+        private List<byte> diagnosticFile = new List<byte>();
+        private bool diagnosticFinished;
 
         private StackmatStatus stackmatStatus = StackmatStatus.LostConnection;
         public StackmatStatus StackmatStatus
@@ -86,6 +90,22 @@ namespace SkyTimer.ViewModel
 
         private void Wave_DataAvailable(object sender, WaveInEventArgs e)
         {
+            if (Diagnostic && !diagnosticFinished)
+            {
+                if (diagnosticFile.Count < 80000)
+                {
+                    diagnosticFile.AddRange(e.Buffer);
+                }
+                else
+                {
+                    using (var writer = new WaveFileWriter(@".\diagnostic.wav", new WaveFormat(8000, 8, 1)))
+                    {
+                        writer.Write(diagnosticFile.ToArray(), 0, diagnosticFile.Count);
+                        diagnosticFinished = true;
+                        diagnosticFile = null;
+                    }
+                }
+            }
             if (Settings.Default.StackmatMode)
             {
                 decoder.Decode(e.Buffer);
