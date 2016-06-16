@@ -41,7 +41,8 @@ namespace SkyTimer.View
             {
                 var client = new GitHubClient(new ProductHeaderValue("SkyTimer", Settings.Default.Version));
                 var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
-                if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
+                var tag = release.TagName.StartsWith("v") ? release.TagName.Remove(0, 1) : release.TagName;
+                if (Settings.Default.Version.IsOlder(tag))
                 {
                     lblMsg.Content = Properties.Resources.UpdateNotification;
                     btnGo.Visibility = Visibility.Visible;

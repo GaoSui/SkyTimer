@@ -17,7 +17,7 @@ namespace SkyTimer.ViewModel
         {
             wave.DataAvailable += Wave_DataAvailable;
             wave.BufferMilliseconds = 100;
-            wave.WaveFormat = new WaveFormat(8000, 8, 1);
+            wave.WaveFormat = new WaveFormat(44100, 8, 1);
 
             decoder.TimeUpdated += Decoder_TimeUpdated;
 
@@ -33,7 +33,7 @@ namespace SkyTimer.ViewModel
         private DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
 
         private WaveIn wave = new WaveIn();
-        private StackmatDecoder_8bit decoder = new StackmatDecoder_8bit(8000);
+        private StackmatDecoder_8bit decoder = new StackmatDecoder_8bit(44100);
 
         private static int RedTimeOut = 500;
 
@@ -92,7 +92,7 @@ namespace SkyTimer.ViewModel
         {
             if (Diagnostic && !diagnosticFinished)
             {
-                if (diagnosticFile.Count < 80000)
+                if (diagnosticFile.Count < 441000)
                 {
                     diagnosticFile.AddRange(e.Buffer);
                 }

@@ -37,43 +37,43 @@ namespace SkyTimer.Utils.Decoder
                 return;
             }
 
-            int value = 0;
-            var threshold = (int)((ssData.Max() - ssData.Min()) * 0.2);
-            values.Clear();
+            //int value = 0;
+            //var threshold = (int)((ssData.Max() - ssData.Min()) * 0.2);
+            //values.Clear();
 
-            //Find the first switch to determine the value
-            for (int i = 1; i < ssData.Length; i++)
-            {
-                if (ssData[i] - ssData[i - 1] > threshold)
-                {
-                    value = 0;
-                    break;
-                }
-                else if (ssData[i - 1] - ssData[i] > threshold)
-                {
-                    value = 1;
-                    break;
-                }
-            }
+            ////Find the first switch to determine the value
+            //for (int i = 1; i < ssData.Length; i++)
+            //{
+            //    if (ssData[i] - ssData[i - 1] > threshold)
+            //    {
+            //        value = 0;
+            //        break;
+            //    }
+            //    else if (ssData[i - 1] - ssData[i] > threshold)
+            //    {
+            //        value = 1;
+            //        break;
+            //    }
+            //}
 
-            values.Add(value);
-            for (int i = 1; i < ssData.Length; i++)
-            {
-                if (ssData[i] - ssData[i - 1] > threshold)
-                {
-                    value = 1;
-                }
-                else if (ssData[i - 1] - ssData[i] > threshold)
-                {
-                    value = 0;
-                }
-                values.Add(value);
-            }
+            //values.Add(value);
+            //for (int i = 1; i < ssData.Length; i++)
+            //{
+            //    if (ssData[i] - ssData[i - 1] > threshold)
+            //    {
+            //        value = 1;
+            //    }
+            //    else if (ssData[i - 1] - ssData[i] > threshold)
+            //    {
+            //        value = 0;
+            //    }
+            //    values.Add(value);
+            //}
 
-            for (int i = 0; i < values.Count; i++)
+            for (int i = 0; i < ssData.Length; i++)
             {
-                //if (ssData[i] > 127)
-                if (values[i] == 1)
+                if (ssData[i] > 127)
+                //if (values[i] == 1)
                 {
                     counter1++;
                     if (counter0 != 0)
