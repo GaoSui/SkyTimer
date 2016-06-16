@@ -11,7 +11,7 @@ namespace SkyTimer.Utils.Scramble
         {
             try
             {
-                return client.DownloadString($"http://127.0.0.1:2014/scramble/.txt?={type}");
+                return client.DownloadString($"http://127.0.0.1:2014/scramble/.txt?={type}").TrimEnd('\n', '\r');
             }
             catch (Exception e)
             {

@@ -1,19 +1,29 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Practices.ServiceLocation;
 using SkyTimer.Helper;
 using SkyTimer.Model;
 using SkyTimer.MVVM;
 using SkyTimer.Properties;
+using SkyTimer.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace SkyTimer.ViewModel
 {
     public class StatisticViewModel : ObservableObject
     {
-        public StatisticViewModel()
+        public StatisticViewModel(IShowTextService showText)
         {
             Messenger.Default.Register<List<Record>>(this, UpdateStatistic);
+            showTextService = showText;
         }
+
+        private List<Record> rawData;
+        private IShowTextService showTextService;
 
         private string best;
         public string Best { get { return best; } set { Set(ref best, Resources.Best + value); } }
@@ -42,8 +52,13 @@ namespace SkyTimer.ViewModel
         private string best100;
         public string Best100 { get { return best100; } set { Set(ref best100, Resources.Best100 + value); } }
 
+        public int iBest5 { get; set; }
+        public int iBest12 { get; set; }
+        public int iBest100 { get; set; }
+
         public void UpdateStatistic(List<Record> data)
         {
+            rawData = data;
             if (data.Count != 0)
             {
                 Best = data.Min().ToString();
@@ -74,6 +89,7 @@ namespace SkyTimer.ViewModel
         {
             var best = typeof(StatisticViewModel).GetProperty($"Best{param}");
             var current = typeof(StatisticViewModel).GetProperty($"Current{param}");
+            var ibest = typeof(StatisticViewModel).GetProperty($"iBest{param}");
 
             if (data.Count >= param)
             {
@@ -84,7 +100,11 @@ namespace SkyTimer.ViewModel
                     var res = CubingAvg(candidate, 2);
                     if (i == 0) b = res;
                     if (i == data.Count - param) current.SetValue(this, res.ToStackmatFormat());
-                    if (res < b) b = res;
+                    if (res < b)
+                    {
+                        b = res;
+                        ibest.SetValue(this, i);
+                    }
                 }
                 best.SetValue(this, b.ToStackmatFormat());
             }
@@ -103,6 +123,80 @@ namespace SkyTimer.ViewModel
                 data.Remove(data.Max());
                 data.Remove(data.Min());
                 return (int)data.Select(r => r.Time).Average();
+            }
+        }
+
+        private RelayCommand<string> show;
+        public RelayCommand<string> Show
+        {
+            get
+            {
+                return show ?? (show = new RelayCommand<string>(prop =>
+                {
+                    List<Record> candidate;
+                    try
+                    {
+                        if (prop.StartsWith("Best"))
+                        {
+                            var index = (int)typeof(StatisticViewModel).GetProperty("i" + prop).GetValue(this);
+                            if (prop.EndsWith("5")) candidate = rawData.GetRange(index, 5);
+                            else if (prop.EndsWith("12")) candidate = rawData.GetRange(index, 12);
+                            else candidate = rawData.GetRange(index, 100);
+                        }
+                        else if (prop == "All")
+                        {
+                            if (rawData.Count < 2) return;
+                            candidate = rawData;
+                        }
+                        else
+                        {
+                            if (prop.EndsWith("5")) candidate = rawData.GetRange(rawData.Count - 5, 5);
+                            else if (prop.EndsWith("12")) candidate = rawData.GetRange(rawData.Count - 12, 12);
+                            else candidate = rawData.GetRange(rawData.Count - 100, 100);
+                        }
+                    }
+                    catch
+                    {
+                        return;
+                    }
+
+                    var sb = new StringBuilder();
+                    sb.AppendLine($"{Resources.GenMsg} {DateTime.Now.ToShortDateString()}");
+
+                    var value = (string)typeof(StatisticViewModel).GetProperty(prop).GetValue(this);
+                    sb.AppendLine(value);
+
+                    var worst = candidate.IndexOf(candidate.Max());
+                    var best = candidate.IndexOf(candidate.Min());
+
+                    sb.AppendLine($"{Resources.Best}{candidate[best].ToString()}");
+                    sb.AppendLine($"{Resources.Worst}{candidate[worst].ToString()}");
+
+                    if (ServiceLocator.Current.GetInstance<RecordListViewModel>().SelectedList.IncludeScramble)
+                    {
+                        for (int i = 0; i < candidate.Count; i++)
+                        {
+                            if (i == best || i == worst)
+                            {
+                                sb.AppendLine($"{i + 1}. ({candidate[i].ToString()})    {candidate[i].Scramble}");
+                            }
+                            else sb.AppendLine($"{i + 1}. {candidate[i].ToString()}    {candidate[i].Scramble}");
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < candidate.Count; i++)
+                        {
+                            if (i == best || i == worst)
+                            {
+                                sb.AppendLine($"{i + 1}. ({candidate[i].ToString()})");
+                            }
+                            else sb.AppendLine($"{i + 1}. {candidate[i].ToString()}");
+                        }
+                    }
+
+                    showTextService.Show(sb.ToString());
+                }));
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.CommandWpf;
 using Microsoft.Practices.ServiceLocation;
 using SkyTimer.Model;
 using SkyTimer.MVVM;
@@ -25,6 +25,12 @@ namespace SkyTimer.ModelWrapper
         public string Name
         {
             get { return Model.Name; }
+            set { Set(value); }
+        }
+
+        public bool IncludeScramble
+        {
+            get { return Model.IncludeScramble; }
             set { Set(value); }
         }
 

@@ -109,9 +109,11 @@
     <Compile Include="Service\IPlotService.cs" />
     <Compile Include="Service\IRecordListService.cs" />
     <Compile Include="Service\IRenameDialogService.cs" />
+    <Compile Include="Service\IShowTextService.cs" />
     <Compile Include="Service\PlotService.cs" />
     <Compile Include="Service\RecordListReader.cs" />
     <Compile Include="Service\RenameDialogService.cs" />
+    <Compile Include="Service\ShowTextService.cs" />
     <Compile Include="Service\WaShenRecord.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -134,6 +136,9 @@
     </Compile>
     <Compile Include="View\StatisticView.xaml.cs">
       <DependentUpon>StatisticView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TextWindow.xaml.cs">
+      <DependentUpon>TextWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TimerView.xaml.cs">
       <DependentUpon>TimerView.xaml</DependentUpon>
@@ -187,6 +192,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\StatisticView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TextWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

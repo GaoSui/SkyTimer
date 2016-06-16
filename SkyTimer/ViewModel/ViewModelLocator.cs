@@ -15,6 +15,7 @@ namespace SkyTimer.ViewModel
             SimpleIoc.Default.Register<IScrambleService, TNoodleScramble>();
             SimpleIoc.Default.Register<IRenameDialogService, RenameDialogService>();
             SimpleIoc.Default.Register<IPlotService, PlotService>();
+            SimpleIoc.Default.Register<IShowTextService, ShowTextService>();
 
             if (ViewModelBase.IsInDesignModeStatic)
             {

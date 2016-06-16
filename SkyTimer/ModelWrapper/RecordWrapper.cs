@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.CommandWpf;
 using SkyTimer.Helper;
 using SkyTimer.Model;
 using SkyTimer.MVVM;

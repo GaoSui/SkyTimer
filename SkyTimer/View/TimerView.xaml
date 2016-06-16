@@ -20,11 +20,11 @@
                           IsCheckable="True"
                           IsChecked="{Binding StackmatMode,
                                               Source={x:Static prop:Settings.Default}}" />
-                <MenuItem Header="Double Precision"
+                <MenuItem Header="{x:Static prop:Resources.Timer_Double}"
                           IsCheckable="True"
                           IsChecked="{Binding DoublePrecision,
                                               Source={x:Static prop:Settings.Default}}" />
-                <MenuItem Command="{Binding Setup}" Header="Audio Settings" />
+                <MenuItem Command="{Binding Setup}" Header="{x:Static prop:Resources.Timer_Audio}" />
             </ContextMenu>
         </Viewbox.ContextMenu>
         <TextBlock FontFamily="/SkyTimer;component/Asset/#LED Real"

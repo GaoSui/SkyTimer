@@ -22,8 +22,8 @@ namespace SkyTimer
         protected override void OnStartup(StartupEventArgs e)
         {
             Process.Start("javaw.exe", "-jar TNoodle-WCA-0.11.1.jar -n");
-            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("zh-CN");
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("zh-CN");
+            //Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("zh-CN");
+            //Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture("zh-CN");
             base.OnStartup(e);
         }
 

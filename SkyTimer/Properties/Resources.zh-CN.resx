@@ -121,33 +121,54 @@
     <value>所有平均：</value>
   </data>
   <data name="Best" xml:space="preserve">
-    <value>最快：</value>
+    <value>单次最快：</value>
   </data>
   <data name="Best100" xml:space="preserve">
-    <value>最快100次：</value>
+    <value>最快100次平均：</value>
   </data>
   <data name="Best12" xml:space="preserve">
-    <value>最快12次：</value>
+    <value>最快12次平均：</value>
   </data>
   <data name="Best5" xml:space="preserve">
-    <value>最快5次：</value>
+    <value>最快5次平均：</value>
   </data>
   <data name="Current100" xml:space="preserve">
-    <value>当前100次：</value>
+    <value>当前100次平均：</value>
   </data>
   <data name="Current12" xml:space="preserve">
-    <value>当前12次：</value>
+    <value>当前12次平均：</value>
   </data>
   <data name="Current5" xml:space="preserve">
-    <value>当前5次：</value>
+    <value>当前5次平均：</value>
   </data>
   <data name="DefaultRecordListName" xml:space="preserve">
     <value>默认分组</value>
+  </data>
+  <data name="GenMsg" xml:space="preserve">
+    <value>由SkyTimer生成</value>
+  </data>
+  <data name="RecordList_Clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="RecordList_IncludeScramble" xml:space="preserve">
+    <value>晒成绩时显示打乱</value>
+  </data>
+  <data name="RecordList_Plot" xml:space="preserve">
+    <value>绘制折线图</value>
+  </data>
+  <data name="RecordList_Rename" xml:space="preserve">
+    <value>重命名</value>
+  </data>
+  <data name="Timer_Audio" xml:space="preserve">
+    <value>系统音频设置</value>
+  </data>
+  <data name="Timer_Double" xml:space="preserve">
+    <value>显示两位小数</value>
   </data>
   <data name="UpdateNotification" xml:space="preserve">
     <value>检测到新的版本，请前往官网下载。</value>
   </data>
   <data name="Worst" xml:space="preserve">
-    <value>最慢：</value>
+    <value>单次最慢：</value>
   </data>
 </root>

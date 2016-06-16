@@ -12,14 +12,28 @@
     <UniformGrid Columns="3"
                  Rows="3"
                  TextBlock.FontSize="18">
-        <Button Content="{Binding Best}" />
-        <Button Content="{Binding Best5}" />
-        <Button Content="{Binding Current5}" />
-        <Button Content="{Binding Worst}" />
-        <Button Content="{Binding Best12}" />
-        <Button Content="{Binding Current12}" />
-        <Button Content="{Binding All}" />
-        <Button Content="{Binding Best100}" />
-        <Button Content="{Binding Current100}" />
+        <Label HorizontalContentAlignment="Center" Content="{Binding Best}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Best5"
+                Content="{Binding Best5}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Current5"
+                Content="{Binding Current5}" />
+        <Label HorizontalContentAlignment="Center" Content="{Binding Worst}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Best12"
+                Content="{Binding Best12}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Current12"
+                Content="{Binding Current12}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="All"
+                Content="{Binding All}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Best100"
+                Content="{Binding Best100}" />
+        <Button Command="{Binding Show}"
+                CommandParameter="Current100"
+                Content="{Binding Current100}" />
     </UniformGrid>
 </UserControl>
