@@ -43,7 +43,7 @@ namespace SkyTimer.View
                 var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
                 if (Settings.Default.Version.IsOlder(release.TagName.Remove(0, 1)))
                 {
-                    lblMsg.Content = $"New version available, please download it.";
+                    lblMsg.Content = Properties.Resources.UpdateNotification;
                     btnGo.Visibility = Visibility.Visible;
                 }
             }

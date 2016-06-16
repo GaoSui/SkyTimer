@@ -118,36 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="All" xml:space="preserve">
-    <value>Avg of all : </value>
+    <value>所有平均：</value>
   </data>
   <data name="Best" xml:space="preserve">
-    <value>Best : </value>
+    <value>最快：</value>
   </data>
   <data name="Best100" xml:space="preserve">
-    <value>Best 100  : </value>
+    <value>最快100次：</value>
   </data>
   <data name="Best12" xml:space="preserve">
-    <value>Best 12 : </value>
+    <value>最快12次：</value>
   </data>
   <data name="Best5" xml:space="preserve">
-    <value>Best 5 : </value>
+    <value>最快5次：</value>
   </data>
   <data name="Current100" xml:space="preserve">
-    <value>Current 100 : </value>
+    <value>当前100次：</value>
   </data>
   <data name="Current12" xml:space="preserve">
-    <value>Current 12 : </value>
+    <value>当前12次：</value>
   </data>
   <data name="Current5" xml:space="preserve">
-    <value>Current 5 : </value>
+    <value>当前5次：</value>
   </data>
   <data name="DefaultRecordListName" xml:space="preserve">
-    <value>Default</value>
+    <value>默认分组</value>
   </data>
   <data name="UpdateNotification" xml:space="preserve">
-    <value>New version is available, please download it.</value>
+    <value>检测到新的版本，请前往官网下载。</value>
   </data>
   <data name="Worst" xml:space="preserve">
-    <value>Worst : </value>
+    <value>最慢：</value>
   </data>
 </root>

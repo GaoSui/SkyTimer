@@ -24,7 +24,7 @@ namespace SkyTimer.Service
                 {
                     new RecordList
                     {
-                        Name = "Default"
+                        Name = Resources.DefaultRecordListName
                     }
                 };
             }

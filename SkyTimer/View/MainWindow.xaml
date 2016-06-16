@@ -8,6 +8,7 @@
         Height="650"
         DataContext="{Binding Main,
                               Source={StaticResource Locator}}"
+        FontFamily="Microsoft YaHei UI"
         PreviewKeyDown="Window_KeyDown"
         PreviewKeyUp="Window_KeyUp"
         WindowState="Maximized"
@@ -17,13 +18,13 @@
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="3*" />
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="160" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
         <local:ScrambleView Grid.ColumnSpan="2" Margin="10" />

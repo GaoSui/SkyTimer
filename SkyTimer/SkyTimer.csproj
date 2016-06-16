@@ -100,6 +100,11 @@
     <Compile Include="Model\UpdateScrambleInstruction.cs" />
     <Compile Include="MVVM\ObservableObject.cs" />
     <Compile Include="MVVM\SimpleModelWrapperBase.cs" />
+    <Compile Include="Properties\Resources.zh-CN.Designer.cs">
+      <DependentUpon>Resources.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Service\FakeRecordLists.cs" />
     <Compile Include="Service\IPlotService.cs" />
     <Compile Include="Service\IRecordListService.cs" />
@@ -205,8 +210,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-CN.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Asset\led_real.ttf" />
     <None Include="packages.config" />
