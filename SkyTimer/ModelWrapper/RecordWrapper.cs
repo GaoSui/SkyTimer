@@ -1,7 +1,9 @@
-﻿using SkyTimer.Helper;
+﻿using GalaSoft.MvvmLight.Command;
+using SkyTimer.Helper;
 using SkyTimer.Model;
 using SkyTimer.MVVM;
 using System;
+using System.Windows;
 
 namespace SkyTimer.ModelWrapper
 {
@@ -50,6 +52,18 @@ namespace SkyTimer.ModelWrapper
         public int CompareTo(RecordWrapper other)
         {
             return Model.CompareTo(other.Model);
+        }
+
+        private RelayCommand copyScramble;
+        public RelayCommand CopyScramble
+        {
+            get
+            {
+                return copyScramble ?? (copyScramble = new RelayCommand(() =>
+                {
+                    Clipboard.SetText(Model.Scramble);
+                }));
+            }
         }
     }
 }

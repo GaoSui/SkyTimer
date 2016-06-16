@@ -9,15 +9,17 @@
              DataContext="{Binding Statistic,
                                    Source={StaticResource Locator}}"
              mc:Ignorable="d">
-    <UniformGrid Columns="3" Rows="3">
-        <Label Content="{Binding Best}" />
-        <Label Content="{Binding Best5}" />
-        <Label Content="{Binding Current5}" />
-        <Label Content="{Binding Worst}" />
-        <Label Content="{Binding Best12}" />
-        <Label Content="{Binding Current12}" />
-        <Label Content="{Binding All}" />
-        <Label Content="{Binding Best100}" />
-        <Label Content="{Binding Current100}" />
+    <UniformGrid Columns="3"
+                 Rows="3"
+                 TextBlock.FontSize="18">
+        <Button Content="{Binding Best}" />
+        <Button Content="{Binding Best5}" />
+        <Button Content="{Binding Current5}" />
+        <Button Content="{Binding Worst}" />
+        <Button Content="{Binding Best12}" />
+        <Button Content="{Binding Current12}" />
+        <Button Content="{Binding All}" />
+        <Button Content="{Binding Best100}" />
+        <Button Content="{Binding Current100}" />
     </UniformGrid>
 </UserControl>

@@ -59,6 +59,7 @@
         <ListBox x:Name="list"
                  Grid.Row="1"
                  Grid.Column="2"
+                 HorizontalContentAlignment="Stretch"
                  ItemsSource="{Binding SelectedItem.List,
                                        ElementName=lists}"
                  SelectedItem="{Binding SelectedRecord}">
@@ -67,7 +68,13 @@
             </ei:Interaction.Behaviors>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Time, Converter={StaticResource TimeConverter}}" />
+                    <Label Content="{Binding Time, Converter={StaticResource TimeConverter}}" ToolTip="{Binding Scramble}">
+                        <ei:Interaction.Triggers>
+                            <ei:EventTrigger EventName="MouseRightButtonDown">
+                                <mvvm:EventToCommand Command="{Binding CopyScramble}" />
+                            </ei:EventTrigger>
+                        </ei:Interaction.Triggers>
+                    </Label>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -85,16 +92,16 @@
                      Grid.Column="2"
                      Columns="3">
             <ToggleButton Content="+2"
-                          FontSize="25"
+                          FontSize="20"
                           IsChecked="{Binding SelectedItem.PlusTwo,
                                               ElementName=list}" />
             <ToggleButton Content="DNF"
-                          FontSize="25"
+                          FontSize="20"
                           IsChecked="{Binding SelectedItem.DNF,
                                               ElementName=list}" />
             <Button Command="{Binding RemoveRecord}"
                     Content="X"
-                    FontSize="25" />
+                    FontSize="20" />
         </UniformGrid>
     </Grid>
 </UserControl>
