@@ -9,6 +9,7 @@
         Result,
         LeftHand,
         RightHand,
-        LostConnection
+        LostConnection,
+        Unset
     }
 }

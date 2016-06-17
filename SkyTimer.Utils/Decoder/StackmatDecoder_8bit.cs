@@ -23,7 +23,7 @@ namespace SkyTimer.Utils.Decoder
         private int counter0 = 0;
         private int counter1 = 0;
         private List<int> decodedValues = new List<int> { 0, 0, 0, 0, 0, 0 };
-        private List<int> values = new List<int>();
+        private bool doublePrecision;
 
 
         public void Decode(byte[] ssData)
@@ -37,43 +37,9 @@ namespace SkyTimer.Utils.Decoder
                 return;
             }
 
-            //int value = 0;
-            //var threshold = (int)((ssData.Max() - ssData.Min()) * 0.2);
-            //values.Clear();
-
-            ////Find the first switch to determine the value
-            //for (int i = 1; i < ssData.Length; i++)
-            //{
-            //    if (ssData[i] - ssData[i - 1] > threshold)
-            //    {
-            //        value = 0;
-            //        break;
-            //    }
-            //    else if (ssData[i - 1] - ssData[i] > threshold)
-            //    {
-            //        value = 1;
-            //        break;
-            //    }
-            //}
-
-            //values.Add(value);
-            //for (int i = 1; i < ssData.Length; i++)
-            //{
-            //    if (ssData[i] - ssData[i - 1] > threshold)
-            //    {
-            //        value = 1;
-            //    }
-            //    else if (ssData[i - 1] - ssData[i] > threshold)
-            //    {
-            //        value = 0;
-            //    }
-            //    values.Add(value);
-            //}
-
             for (int i = 0; i < ssData.Length; i++)
             {
                 if (ssData[i] > 127)
-                //if (values[i] == 1)
                 {
                     counter1++;
                     if (counter0 != 0)
@@ -83,23 +49,14 @@ namespace SkyTimer.Utils.Decoder
                             if (Buffer.Count > 40)
                             {
                                 var frame = new StackmatFrame();
-                                if (DecodeFrame(frame))
-                                {
-                                    TimeUpdated(this, frame);
-                                }
+                                DecodeFrame(frame);
+                                TimeUpdated(this, frame);
                             }
                             Buffer.Clear();
-#if DEBUG
-
-                            BufferCleared();
-#endif
                         }
                         else
                         {
                             Buffer.Add(counter0);
-#if DEBUG
-                            ValuePushed(this, counter0);
-#endif
                         }
                         counter0 = 0;
                     }
@@ -110,16 +67,13 @@ namespace SkyTimer.Utils.Decoder
                     if (counter1 != 0)
                     {
                         Buffer.Add(counter1);
-#if DEBUG
-                        ValuePushed(this, counter1);
-#endif
                         counter1 = 0;
                     }
                 }
             }
         }
 
-        private bool DecodeFrame(StackmatFrame frame)
+        private void DecodeFrame(StackmatFrame frame)
         {
             int index = 8, n1 = Normalize(Buffer[0]), n2 = Normalize(Buffer[1]), n3 = Normalize(Buffer[2]);
 
@@ -138,8 +92,6 @@ namespace SkyTimer.Utils.Decoder
                                     frame.Status = StackmatStatus.Green;
                                     index = 6;
                                     break;
-                                default:
-                                    return false;
                             }
                             break;
                         case 2:
@@ -152,12 +104,8 @@ namespace SkyTimer.Utils.Decoder
                                     frame.Status = StackmatStatus.Red;
                                     index = 6;
                                     break;
-                                default:
-                                    return false;
                             }
                             break;
-                        default:
-                            return false;
                     }
                     break;
                 case 2:
@@ -171,13 +119,11 @@ namespace SkyTimer.Utils.Decoder
                     frame.Status = StackmatStatus.Timing;
                     index = 4;
                     break;
-                default:
-                    return false;
             }
 
+            int precision = doublePrecision ? 5 : 6;
 
-
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < precision; i++)
             {
                 n1 = Normalize(Buffer[index]);
                 n2 = Normalize(Buffer[index + 1]);
@@ -203,8 +149,6 @@ namespace SkyTimer.Utils.Decoder
                                         decodedValues[i] = (1);
                                         index += 6;
                                         break;
-                                    default:
-                                        return false;
                                 }
                                 break;
                             case 2:
@@ -215,8 +159,6 @@ namespace SkyTimer.Utils.Decoder
                                 decodedValues[i] = (7);
                                 index += 6;
                                 break;
-                            default:
-                                return false;
                         }
                         break;
                     case 2:
@@ -230,8 +172,6 @@ namespace SkyTimer.Utils.Decoder
                                 decodedValues[i] = (6);
                                 index += 6;
                                 break;
-                            default:
-                                return false;
                         }
                         break;
                     case 3:
@@ -246,21 +186,20 @@ namespace SkyTimer.Utils.Decoder
                         decodedValues[i] = (0);
                         index += 4;
                         break;
-                    default:
-                        return false;
+                    case 7:
+                        if (i == 5)
+                        {
+                            doublePrecision = true;
+                        }
+                        break;
                 }
             }
 
             frame.Time = decodedValues[0] * 60000 + decodedValues[1] * 10000 + decodedValues[2] * 1000 + decodedValues[3] * 100 + decodedValues[4] * 10 + decodedValues[5];
-            return true;
         }
 
         public event EventHandler<StackmatFrame> TimeUpdated;
 
-#if DEBUG
-        public event EventHandler<int> ValuePushed;
-        public event Action BufferCleared;
-#endif
         public int Normalize(int value)
         {
             return (int)(value / normalizeFactor + 0.5);

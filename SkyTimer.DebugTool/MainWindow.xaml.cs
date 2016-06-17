@@ -27,7 +27,6 @@ namespace SkyTimer.DebugTool
         {
             InitializeComponent();
         }
-
         private WaveFileReader reader;
         private StackmatDecoder_8bit decoder;
         private const int xResolution = 1280;
@@ -43,8 +42,8 @@ namespace SkyTimer.DebugTool
                 decoder = new StackmatDecoder_8bit(reader.WaveFormat.SampleRate);
 
                 decoder.TimeUpdated += Decoder_TimeUpdated;
-                decoder.ValuePushed += Decoder_ValuePushed;
-                decoder.BufferCleared += Decoder_BufferCleared;
+                //decoder.ValuePushed += Decoder_ValuePushed;
+                //decoder.BufferCleared += Decoder_BufferCleared;
             }
         }
 
@@ -60,7 +59,7 @@ namespace SkyTimer.DebugTool
 
         private void Decoder_TimeUpdated(object sender, StackmatFrame e)
         {
-            Title = $"{e.Status} {e.Time}";
+            Title = $"{e.Status} {TimeSpan.FromMilliseconds(e.Time).ToString("m\\:ss\\.fff")}";
         }
 
         private void btnDecode_Click(object sender, RoutedEventArgs e)
@@ -105,7 +104,7 @@ namespace SkyTimer.DebugTool
             if (reader == null || decoder == null) return;
             reader.Position = 0;
             var buffer = new byte[reader.Length];
-            reader.Read(buffer, 0,(int)reader.Length);
+            reader.Read(buffer, 0, (int)reader.Length);
             var res = decoder.GetGroups(buffer, true);
             var sb = new StringBuilder();
             foreach (var item in res)
