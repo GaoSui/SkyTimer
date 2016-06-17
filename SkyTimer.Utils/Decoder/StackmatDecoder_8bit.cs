@@ -195,6 +195,7 @@ namespace SkyTimer.Utils.Decoder
                 }
             }
 
+            if (doublePrecision) decodedValues[5] = 0;
             frame.Time = decodedValues[0] * 60000 + decodedValues[1] * 10000 + decodedValues[2] * 1000 + decodedValues[3] * 100 + decodedValues[4] * 10 + decodedValues[5];
         }
 
