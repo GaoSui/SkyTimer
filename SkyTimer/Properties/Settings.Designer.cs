@@ -55,7 +55,7 @@ namespace SkyTimer.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1.3.3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.3.4")]
         public string Version {
             get {
                 return ((string)(this["Version"]));
