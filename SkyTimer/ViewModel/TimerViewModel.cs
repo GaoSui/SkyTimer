@@ -92,7 +92,7 @@ namespace SkyTimer.ViewModel
         {
             if (Diagnostic && !diagnosticFinished)
             {
-                if (diagnosticFile.Count < 441000)
+                if (diagnosticFile.Count < 80000)
                 {
                     diagnosticFile.AddRange(e.Buffer);
                 }
