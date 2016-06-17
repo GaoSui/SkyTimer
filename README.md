@@ -9,6 +9,9 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 
 ##### [中文使用说明](README.zh-CN.md)
 
+### ScreenShot
+![UI of SkyTimer](ScreenShots/UI.jpg)
+
 ### System Requirement
 - Windows 10 is recommended
 - .NET Framwork 4.6.1 [Download Link](https://www.microsoft.com/net/download)
@@ -60,4 +63,4 @@ If SkyTimer does not respond to your StackMat at all, there must be something wr
 If SkyTimer is responding incorrectly, chances are your StackMat is using an unsupported signal format. Contact me if you are willing to help improve this software.
 
 ##### Simple diagnostic
-Right click on the timer and check "Diagnostic", SkyTimer will write the next 10 seconds' signal into a file called diagnostic.wav. Open this file with any audio editor, for example, Audacity, and you can observe the waveform. It should be something like this:
+Right click on the timer and check "Diagnostic", SkyTimer will write the next 10 seconds' signal into a file called diagnostic.wav. Open this file with any audio editor, for example, Audacity, and you can zoom in and observe the waveform. It should be something like this: ![Image of a valid singal](ScreenShots/ValidSignal.jpg)
