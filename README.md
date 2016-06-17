@@ -3,6 +3,8 @@ A cubing timer which supports StackMat and pure WCA scrambles.
 
 ##### MIT License
 
+Twitter @Gao_Sui
+
 ## Download Link 下载链接
 - [Github] (https://github.com/GaoSui/SkyTimer/releases)
 - [百度网盘](http://pan.baidu.com/s/1dF7Faff)
