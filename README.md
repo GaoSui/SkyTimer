@@ -33,7 +33,7 @@ Choose a scramble type in the drop down list. "fm" stands for fewest move. "ni" 
 On the left is the list of groups. Add and remove a group using the plus and minus buttons below. Right click on a group to rename, clear or plot it.
 ##### Plotting
 In the plot window you can click daily to show today's records or drag the sliders to show records in a certain amount of days or rounds while all data are displayed by default.
-##### Statistic Output
+##### Statistic Detail
 Click on a particular statistic type to show a dedicated output window about your records. Choose whether to include scramble or not in the groups' context menu. The output is copied to your clip board automatically. 
 ##### Copy Scramble
 Right click on a record to copy its corresponding scramble.
