@@ -3,6 +3,8 @@
 
 ##### MIT License
 
+新浪微博@随哥pipe
+
 ## 下载链接
 - [百度网盘](http://pan.baidu.com/s/1dF7Faff)
 - [Github] (https://github.com/GaoSui/SkyTimer/releases)
