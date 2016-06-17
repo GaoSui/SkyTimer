@@ -64,3 +64,5 @@
 
 ##### 简单诊断
 在计时器上右键选择诊断，SkyTimer会记录10秒的信号到diagnostic.wav文件。用任何音频编辑器打开这个文件，比如Audacity，你可以放大观察波形。 应该是类似这个样子: ![Image of a valid singal](ScreenShots/ValidSignal.jpg)
+
+感谢天津⑨群各位的建议和协助。
