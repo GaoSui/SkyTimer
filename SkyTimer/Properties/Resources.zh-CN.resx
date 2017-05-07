@@ -168,6 +168,9 @@
   <data name="Timer_Double" xml:space="preserve">
     <value>显示两位小数</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>新版发布啦</value>
+  </data>
   <data name="UpdateNotification" xml:space="preserve">
     <value>检测到新的版本，请前往官网下载。</value>
   </data>

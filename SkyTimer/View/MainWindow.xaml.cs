@@ -22,36 +22,11 @@ using System.Windows.Shapes;
 
 namespace SkyTimer.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-
-            Title = $"SkyTimer v{Settings.Default.Version}";
-            CheckForUpdate();
-        }
-
-        private async void CheckForUpdate()
-        {
-            try
-            {
-                var client = new GitHubClient(new ProductHeaderValue("SkyTimer", Settings.Default.Version));
-                var release = await client.Repository.Release.GetLatest("GaoSui", "Skytimer");
-                var tag = release.TagName.StartsWith("v") ? release.TagName.Remove(0, 1) : release.TagName;
-                if (Settings.Default.Version.IsOlder(tag))
-                {
-                    lblMsg.Content = Properties.Resources.UpdateNotification;
-                    btnGo.Visibility = Visibility.Visible;
-                }
-            }
-            catch
-            {
-                return;
-            }
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -86,11 +61,6 @@ namespace SkyTimer.View
                 ServiceLocator.Current.GetInstance<TimerViewModel>().SpaceKeyUp();
             }
             e.Handled = true;
-        }
-
-        private void btnGo_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start("https://github.com/GaoSui/SkyTimer");
         }
     }
 }

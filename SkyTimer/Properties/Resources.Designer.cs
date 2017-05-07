@@ -214,6 +214,15 @@ namespace SkyTimer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to A newer version is available. Update?.
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New version is available, please download it..
         /// </summary>
         public static string UpdateNotification {

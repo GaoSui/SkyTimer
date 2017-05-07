@@ -1,22 +1,8 @@
-/*
-  In App.xaml:
-  <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:SkyTimer"
-                           x:Key="Locator" />
-  </Application.Resources>
-  
-  In the View:
-  DataContext="{Binding Source={StaticResource Locator}, Path=ViewModelName}"
-
-  You can also use Blend to do all this with the tool's support.
-  See http://www.galasoft.ch/mvvm
-*/
-
-using GalaSoft.MvvmLight;
+﻿using Microsoft.Practices.ServiceLocation;
 using GalaSoft.MvvmLight.Ioc;
-using Microsoft.Practices.ServiceLocation;
-using SkyTimer.Service;
 using SkyTimer.Utils.Scramble;
+using SkyTimer.Service;
+using GalaSoft.MvvmLight;
 
 namespace SkyTimer.ViewModel
 {
@@ -30,8 +16,6 @@ namespace SkyTimer.ViewModel
             SimpleIoc.Default.Register<IRenameDialogService, RenameDialogService>();
             SimpleIoc.Default.Register<IPlotService, PlotService>();
             SimpleIoc.Default.Register<IShowTextService, ShowTextService>();
-            SimpleIoc.Default.Register<IGetRemoteVersionService, GetRemoteVersionService>();
-            SimpleIoc.Default.Register<IShowUpdateService, ShowUpdateService>();
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
@@ -40,6 +24,7 @@ namespace SkyTimer.ViewModel
             else
             {
                 SimpleIoc.Default.Register<IRecordListService, RecordListReader>();
+                //SimpleIoc.Default.Register<IRecordListService, WaShenRecord>();
             }
 
             SimpleIoc.Default.Register<TimerViewModel>();
@@ -54,10 +39,5 @@ namespace SkyTimer.ViewModel
         public RecordListViewModel RecordList => ServiceLocator.Current.GetInstance<RecordListViewModel>();
         public StatisticViewModel Statistic => ServiceLocator.Current.GetInstance<StatisticViewModel>();
         public MainWindowViewModel Main => ServiceLocator.Current.GetInstance<MainWindowViewModel>();
-
-        public static void Cleanup()
-        {
-            // TODO Clear the ViewModels
-        }
     }
 }

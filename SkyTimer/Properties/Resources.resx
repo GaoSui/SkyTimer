@@ -168,6 +168,9 @@
   <data name="Timer_Double" xml:space="preserve">
     <value>Double Precision</value>
   </data>
+  <data name="Update" xml:space="preserve">
+    <value>A newer version is available. Update?</value>
+  </data>
   <data name="UpdateNotification" xml:space="preserve">
     <value>New version is available, please download it.</value>
   </data>
