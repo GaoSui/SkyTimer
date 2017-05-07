@@ -48,8 +48,6 @@
     <Compile Include="Decoder\StackmatFrame.cs" />
     <Compile Include="Decoder\StackmatStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scramble\IScrambleService.cs" />
-    <Compile Include="Scramble\TNoodleScramble.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

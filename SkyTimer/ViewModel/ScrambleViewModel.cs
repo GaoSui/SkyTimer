@@ -1,21 +1,19 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using SkyTimer.Model;
-using SkyTimer.Utils.Scramble;
+using SkyTimer.Service;
 
 namespace SkyTimer.ViewModel
 {
     public class ScrambleViewModel : ViewModelBase
     {
-        public ScrambleViewModel(IScrambleService scrambler)
+        public ScrambleViewModel(IScrambleService scramble)
         {
-            this.scrambler = scrambler;
-
+            scrambleService = scramble;
             Messenger.Default.Register<UpdateScrambleInstruction>(this, UpdateScramble);
-
         }
 
-        private IScrambleService scrambler;
+        private IScrambleService scrambleService;
 
         private string scramble;
         public string Scramble
@@ -24,10 +22,9 @@ namespace SkyTimer.ViewModel
             set { Set(ref scramble, value); }
         }
 
-        public void UpdateScramble(UpdateScrambleInstruction ins)
+        public async void UpdateScramble(UpdateScrambleInstruction ins)
         {
-            Scramble = scrambler.GetScramble(ins.CubeName);
-
+            Scramble = await scrambleService.GetScramble(ins.CubeName);
             Messenger.Default.Send(Scramble);
         }
     }

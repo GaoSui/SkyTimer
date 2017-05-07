@@ -129,6 +129,7 @@
     <Compile Include="Service\PlotService.cs" />
     <Compile Include="Service\RecordListReader.cs" />
     <Compile Include="Service\RenameDialogService.cs" />
+    <Compile Include="Service\ScrambleService.cs" />
     <Compile Include="Service\ShowTextService.cs" />
     <Compile Include="Service\ShowUpdateService.cs" />
     <Compile Include="Service\WaShenRecord.cs" />

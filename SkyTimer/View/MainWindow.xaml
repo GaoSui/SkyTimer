@@ -15,7 +15,6 @@
     FontFamily="Microsoft YaHei UI"
     PreviewKeyDown="Window_KeyDown"
     PreviewKeyUp="Window_KeyUp"
-    WindowState="Maximized"
     mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

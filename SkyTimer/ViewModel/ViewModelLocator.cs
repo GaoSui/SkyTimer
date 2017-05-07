@@ -16,7 +16,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using SkyTimer.Service;
-using SkyTimer.Utils.Scramble;
 
 namespace SkyTimer.ViewModel
 {
