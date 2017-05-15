@@ -6,6 +6,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "request": "^2.81.0"
   }
 }
