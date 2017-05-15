@@ -1,0 +1,11 @@
+{
+  "name": "skytimer-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "randomstring": "^1.1.5"
+  }
+}
