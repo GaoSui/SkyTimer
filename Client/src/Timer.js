@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Scramble from './Scramble';
+import List from './List'
 import './Timer.css'
 
 // let Status = {
@@ -100,6 +101,7 @@ class Timer extends Component {
             <div>
                 <Scramble type={this.state.type} ref={scramble => this.scrambler = scramble} />
                 <p className={this.state.color}>{this.state.time}</p>
+                <List ref={list => this.list = list} />
             </div>
         );
     }

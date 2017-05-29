@@ -13,7 +13,6 @@ class Scramble extends Component {
     update() {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = () => {
-            console.log(xhttp.response);
             if (xhttp.readyState === 4 && xhttp.status === 200) {
                 this.setState({ scramble: xhttp.responseText });
             }
