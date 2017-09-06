@@ -5,6 +5,7 @@
 
 <script>
 import Scrambler from './tnoodle'
+//const tnoodle = require('./tnoodle').tnoodle
 
 export default {
   data() {
@@ -14,10 +15,20 @@ export default {
   },
   methods: {
     next() {
-      if (!this.scrambler) this.scrambler = new Scrambler()
-      this.scrambler.loadScramble(res => this.scramble = res, '333')
+      this.scrambler.loadScramble(res => {
+        console.log(res)
+        this.scramble = res
+      }, '333')
     }
+  },
+  beforeCreate() {
+    this.scrambler = new Scrambler()
   }
 }
 </script>
 
+<style lang="scss">
+p {
+  color: yellow;
+}
+</style>

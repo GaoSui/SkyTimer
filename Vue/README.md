@@ -1,6 +1,6 @@
 # skytimer
 
-> Professional timer for cubers
+> Pro cubing timer
 
 ## Build Setup
 
